@@ -5,13 +5,109 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link href="assets/style.css" rel="stylesheet">
+  
 </head>
 <body>
   
   <!-- Start of the main application UI -->
-  <div>
+  <div class="container justify-content-around">
 
+      <header class="row justify-content-around align-items-center">
+        <h1 class="col">WEATHER DASHBOARD</h1>
+        <h6 class="col">v1.0.0</h6>
+      </header>
+
+    <div class="row justify-content-around">
+      <div class="col-3">
+        SEARCH CITY WEATHER
+      </div>
+
+      <div class="col-8">
+
+        <div class="row">
+          <div class="card" style="width: 95%;">
+            <div class="card-header">
+              CITY [date] [icon]
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">temp</li>
+              <li class="list-group-item">humid</li>
+              <li class="list-group-item">wind speed</li>
+              <li class="list-group-item">UV index</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row align-items-evenly">
+          <div class="col">
+            <div class="card" >
+              <div class="card-header">
+                DAY ONE! [date]
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">weather icon</li>
+                <li class="list-group-item">temp</li>
+                <li class="list-group-item">humidity</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" >
+              <div class="card-header">
+                DAY TWO! [date]
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" ">
+              <div class="card-header">
+                DAY THREE! [date]
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                DAY FOUR! [date]
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="">
+              <div class="card-header">
+                DAY FIVE!!!!! [date]
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="assets/main.js"></script>
 </body>
 </html>
