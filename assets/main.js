@@ -59,6 +59,22 @@ function getWeatherByCity(cityToSearch) {
       $("#ccWindSpeed").text(`Wind Speed: ${ccWindSpeed} MPH`);
       $("#ccUVIndex").text(`UV Index: ${ccUVIndex}`);
 
+      //UV Index Color function
+      //colors and ranges from https://www.epa.gov/sunsafety/uv-index-scale-0
+      function uvColor() {
+        if (ccUVIndex >= 11) {
+          $("#ccUVIndex").css({"backgroundColor": "hsl(303, 100%, 18%)", "color":"white"});
+        } else if (ccUVIndex < 11 && ccUVIndex > 7) {
+          $("#ccUVIndex").css({"backgroundColor": "darkred", "color":"white"});
+        } else if (ccUVIndex < 8 && ccUVIndex >= 6) {
+          $("#ccUVIndex").css({"backgroundColor": "darkorange"});
+        } else if (ccUVIndex < 6 && ccUVIndex >= 3) {
+          $("#ccUVIndex").css({"backgroundColor": "yellow"});
+        } else
+          $("#ccUVIndex").css({"backgroundColor": "green", "color":"white"});
+      }
+      uvColor();
+
       //5day loop start
       let fiveDayForcast = weatherRes.daily;
 

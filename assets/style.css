@@ -23,3 +23,28 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+ /* outdated css
+.uv-extreme {
+  background-color: hsl(303, 100%, 18%);
+  color: white;
+}
+
+.uv-veryhigh {
+  background-color: darkred;
+  color: white;
+}
+
+.uv-high {
+  background-color: darkorange;
+}
+
+.uv-moderate {
+  background-color: yellow;
+}
+
+.uv-low {
+  background-color: green;
+  color: white;
+}
+*/
