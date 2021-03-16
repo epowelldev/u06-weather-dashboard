@@ -16,7 +16,7 @@
   <!-- Start of the main application UI -->
   <div class="container justify-content-around">
 
-    <header class="row justify-content-around align-items-center bg-dark text-light">
+    <header class="row justify-content-around align-items-center bg-dark text-light p-3 m-3">
       <h1 class="col">WEATHER DASHBOARD</h1>
       <h6 class="col">v1.0.0</h6>
     </header>
@@ -38,7 +38,7 @@
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item" id="ccTemp">temp</li>
-              <li class="list-group-item" id="ccHumidity">humid</li>
+              <li class="list-group-item" id="ccHumid">humid</li>
               <li class="list-group-item" id="ccWindSpeed">wind speed</li>
               <li class="list-group-item" id="ccUVIndex">UV index</li>
             </ul>
@@ -46,63 +46,64 @@
         </div>
 
         <div class="row align-items-evenly">
+          <h3 class="p-2">5 Day Forcast:</h3>
           <div class="col">
             <div class="card" id="day1" >
-              <div class="card-header">
-                DAY ONE! [date]
-              </div>
+              <h5 class="card-header" id="day1date">
+                [date]
+              </h5>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">weather icon</li>
-                <li class="list-group-item">temp</li>
-                <li class="list-group-item">humidity</li>
+                <li class="list-group-item" id="day1icon">weather icon</li>
+                <li class="list-group-item" id="day1temp">temp</li>
+                <li class="list-group-item" id="day1humid">humidity</li>
               </ul>
             </div>
           </div>
           <div class="col">
             <div class="card" id="day2" >
-              <div class="card-header">
-                DAY TWO! [date]
-              </div>
+              <h5 class="card-header" id="day2date">
+                [date]
+              </h5>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <li class="list-group-item" id="day2icon">weather icon</li>
+                <li class="list-group-item" id="day2temp">temp</li>
+                <li class="list-group-item" id="day2humid">humidity</li>
               </ul>
             </div>
           </div>
           <div class="col">
             <div class="card" id="day3">
-              <div class="card-header">
-                DAY THREE! [date]
-              </div>
+              <h5 class="card-header" id="day3date">
+                [date]
+              </h5>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <li class="list-group-item" id="day3icon">weather icon</li>
+                <li class="list-group-item" id="day3temp">temp</li>
+                <li class="list-group-item" id="day3humid">humidity</li>
               </ul>
             </div>
           </div>
           <div class="col">
             <div class="card" id="day4">
-              <div class="card-header">
-                DAY FOUR! [date]
-              </div>
+              <h5 class="card-header" id="day4date">
+                [date]
+              </h5>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <li class="list-group-item" id="day4icon">weather icon</li>
+                <li class="list-group-item" id="day4temp">temp</li>
+                <li class="list-group-item" id="day4humid">humidity</li>
               </ul>
             </div>
           </div>
           <div class="col">
             <div class="card" id="day5">
-              <div class="card-header">
-                DAY FIVE!!!!! [date]
-              </div>
+              <h5 class="card-header" id="day5date">
+                [date]
+              </h5>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <li class="list-group-item" id="day5icon">weather icon</li>
+                <li class="list-group-item" id="day5temp">temp</li>
+                <li class="list-group-item" id="day5humid">humidity</li>
               </ul>
             </div>
           </div>
