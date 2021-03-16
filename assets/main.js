@@ -3,6 +3,11 @@
 //API WIZARDRY
 const API_KEY = "a3b4f18c52ad53eb1775853a7b8fe0c0";
 
+// function Kelvin to F
+function kelvTF(tempInKelvin) {
+  return (parseFloat(((tempInKelvin) - 273.15) * (9/5) + 32).toPrecision(4) + " °F");
+}
+
 //get previously searched cities, or empty array (fresh localstorage/search)
 let storedCities = JSON.parse(localStorage.getItem("storedCities")) || [];
 
@@ -39,7 +44,7 @@ function getWeatherByCity(cityToSearch) {
       //log response
       console.log(weatherRes);
       //this is where i will fill vars from response
-      let ccTemp = parseFloat(((weatherRes.current.temp) - 273.15) * (9/5) + 32).toPrecision(4) + "°F";
+      let ccTemp = kelvTF(weatherRes.current.temp);
       let ccHumid = (weatherRes.current.humidity) + "%";
       let ccWindSpeed = weatherRes.current.wind_speed;
       let ccUVIndex = weatherRes.current.uvi;
@@ -50,7 +55,7 @@ function getWeatherByCity(cityToSearch) {
       $("#ccDate").text(ccDate);
       $("#ccTemp").text(`Temp: ${ccTemp}`);
       $("#ccHumid").text(`Humidity: ${ccHumid}`);
-      $("#ccWindSpeed").text(`Wind Speed: ${ccWindSpeed}`);
+      $("#ccWindSpeed").text(`Wind Speed: ${ccWindSpeed} MPH`);
       $("#ccUVIndex").text(`UV Index: ${ccUVIndex}`);
 
       //5day loop start
@@ -58,9 +63,9 @@ function getWeatherByCity(cityToSearch) {
 
       for(let i = 1; i <= 5; i++) {
         $(`#day${i}date`).text(moment().add(i, "days").format("MM/DD/YY"));
-        $(`#day${i}temp`).text(`${daily[i].temp.day}`);
-        $(`#day${i}humid`).text(`${i}`);
-        $(`#day${i}icon`).text(`${i}`);  
+        $(`#day${i}icon`).attr("src", `http://openweathermap.org/img/w/${fiveDayForcast[i].weather[0].icon}.png`);
+        $(`#day${i}temp`).text(kelvTF(fiveDayForcast[i].temp.day));
+        $(`#day${i}humid`).text(`${fiveDayForcast[i].humidity}%`);
       }
 
 
