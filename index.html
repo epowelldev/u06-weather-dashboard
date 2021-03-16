@@ -27,6 +27,11 @@
           <input type="text" class="form-control" placeholder="Enter a City" aria-label="City input" aria-describedby="searchCity">
           <button class="btn btn-outline-secondary" type="button" id="searchCity">Search</button>
         </div>
+        <div class="row">
+          <ul id="searchedCityList">
+            <li>No recent Searches...</li>
+          </ul>
+        </div>
       </div>
 
       <div class="col-8">
@@ -34,13 +39,13 @@
         <div class="row">
           <div class="card" style="width: 95%;">
             <div class="card-header">
-              <h3 id="ccHeader">CITY NAME</h3><h5 id="ccDate">DATESTAMP</h5>
+              <h3 id="ccHeader">City to be Searched</h3><h5 id="ccDate"></h5>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item" id="ccTemp">temp</li>
-              <li class="list-group-item" id="ccHumid">humid</li>
-              <li class="list-group-item" id="ccWindSpeed">wind speed</li>
-              <li class="list-group-item" id="ccUVIndex">UV index</li>
+              <li class="list-group-item" id="ccTemp">Temp: </li>
+              <li class="list-group-item" id="ccHumid">Humidity:</li>
+              <li class="list-group-item" id="ccWindSpeed">Wind Speed:</li>
+              <li class="list-group-item"><span id="ccUVIndex">UV Index:</span></li>
             </ul>
           </div>
         </div>
@@ -50,7 +55,7 @@
           <div class="col">
             <div class="card" id="day1" >
               <h5 class="card-header" id="day1date">
-                [date]
+                + 1
               </h5>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><img id="day1icon"/></li>
@@ -62,7 +67,7 @@
           <div class="col">
             <div class="card" id="day2" >
               <h5 class="card-header" id="day2date">
-                [date]
+                + 2
               </h5>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><img id="day2icon"/></li>
@@ -74,7 +79,7 @@
           <div class="col">
             <div class="card" id="day3">
               <h5 class="card-header" id="day3date">
-                [date]
+                + 3
               </h5>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><img id="day3icon"/></li>
@@ -86,7 +91,7 @@
           <div class="col">
             <div class="card" id="day4">
               <h5 class="card-header" id="day4date">
-                [date]
+                + 4
               </h5>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><img id="day4icon"/></li>
@@ -98,7 +103,7 @@
           <div class="col">
             <div class="card" id="day5">
               <h5 class="card-header" id="day5date">
-                [date]
+                + 5
               </h5>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><img id="day5icon"/></li>

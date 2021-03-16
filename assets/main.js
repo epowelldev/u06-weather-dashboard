@@ -8,13 +8,15 @@ function kelvTF(tempInKelvin) {
   return (parseFloat(((tempInKelvin) - 273.15) * (9/5) + 32).toPrecision(4) + " °F");
 }
 
+//set date
+let ccDate = moment().format("dddd, MMMM Do YYYY");
+$("#ccDate").text(ccDate);
+
 //get previously searched cities, or empty array (fresh localstorage/search)
+let mostRecentSearch = localStorage.getItem("city") || "";
 let storedCities = JSON.parse(localStorage.getItem("storedCities")) || [];
 
 // GIVEN a weather dashboard with form inputs
-
-//Initializes vars to use later (kinda sloppy, kinda not)
-let cityName, cityTemp, cityHumidity, windSpeed, uvIndex;
 
 // WHEN I search for a city
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
@@ -48,11 +50,10 @@ function getWeatherByCity(cityToSearch) {
       let ccHumid = (weatherRes.current.humidity) + "%";
       let ccWindSpeed = weatherRes.current.wind_speed;
       let ccUVIndex = weatherRes.current.uvi;
-      let ccDate = moment().format("dddd, MMMM Do YYYY");
+
       console.log(`Temp: ${ccTemp}, Humidity: ${ccHumid}, Wind Speed: ${ccWindSpeed}, UV Index: ${ccUVIndex}`);
       
       $("#ccHeader").text(cityToSearch);
-      $("#ccDate").text(ccDate);
       $("#ccTemp").text(`Temp: ${ccTemp}`);
       $("#ccHumid").text(`Humidity: ${ccHumid}`);
       $("#ccWindSpeed").text(`Wind Speed: ${ccWindSpeed} MPH`);
@@ -65,9 +66,8 @@ function getWeatherByCity(cityToSearch) {
         $(`#day${i}date`).text(moment().add(i, "days").format("MM/DD/YY"));
         $(`#day${i}icon`).attr("src", `http://openweathermap.org/img/w/${fiveDayForcast[i].weather[0].icon}.png`);
         $(`#day${i}temp`).text(kelvTF(fiveDayForcast[i].temp.day));
-        $(`#day${i}humid`).text(`${fiveDayForcast[i].humidity}%`);
+        $(`#day${i}humid`).text(`Humidity: ${fiveDayForcast[i].humidity}%`);
       }
-
 
     }).catch((error) => console.log("Second API call error: ", error))
     
@@ -82,30 +82,55 @@ $("#searchCity").click(function(e) {
   cityToSearch = $(this).parent().find("input").val();
   console.log(cityToSearch);
   //passes city into API call function
-  detailedSearchRes = getWeatherByCity(cityToSearch);
-  
-  displayCurrentSearch(detailedSearchRes);
-  
+  getWeatherByCity(cityToSearch);
+  //adds city to searched list
+  addCityToList(cityToSearch);
 });
 
-// WHEN I view current weather conditions for that city
-// THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+//store city
+function addCityToList(city) {
+  localStorage.setItem("city", city);
+  //if city isnt stored, store it
+  if(!(storedCities.includes(localStorage.getItem("city")))) {
+    storedCities.push(localStorage.getItem("city"));
+  }
+  if(storedCities.length > 7) {
+    storedCities.splice(storedCities[0], 1);
+  }
+  localStorage.setItem("storedCities", JSON.stringify(storedCities));
 
-function displayCurrentSearch(detailedSearchRes) {
+  //render city list
+  renderCityList();
 }
 
+//rendercity list function
+function renderCityList() {
+  let cityList = $("#searchedCityList");
+  cityList.empty();
+  if(storedCities.length > 0){
+    for(let i = 0; i < storedCities.length; i++) {
+      let searchedCity = storedCities[i];
+      let cityByLine = $("<li>").text(searchedCity).addClass(`list-group-item li-hover border`).attr("city", searchedCity);
+      cityList.prepend(cityByLine);
+    }
+  }
+}
+renderCityList();
 
+$("#searchedCityList").on("click", ".li-hover", function() {
+  cityToSearch = $(this).attr("city");
+  console.log(cityToSearch);
+  //passes city into API call function
+  getWeatherByCity(cityToSearch);
+});
 
-
-
-// WHEN I view the UV index
-// THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-
-// WHEN I view future weather conditions for that city
-// THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
 
 // WHEN I open the weather dashboard
 // THEN I am presented with the last searched city forecast
+
+function loadRecentSearch(searchCity) {
+  if(searchCity !== "") {
+    getWeatherByCity(searchCity);
+  }
+}
+loadRecentSearch(mostRecentSearch);
