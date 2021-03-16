@@ -80,7 +80,7 @@ function getWeatherByCity(cityToSearch) {
 
       for(let i = 1; i <= 5; i++) {
         $(`#day${i}date`).text(moment().add(i, "days").format("MM/DD/YY"));
-        $(`#day${i}icon`).attr("src", `http://openweathermap.org/img/w/${fiveDayForcast[i].weather[0].icon}.png`);
+        $(`#day${i}icon`).attr("src", `https://openweathermap.org/img/w/${fiveDayForcast[i].weather[0].icon}.png`);
         $(`#day${i}temp`).text(kelvTF(fiveDayForcast[i].temp.day));
         $(`#day${i}humid`).text(`Humidity: ${fiveDayForcast[i].humidity}%`);
       }
