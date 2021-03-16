@@ -1,7 +1,7 @@
 // u06-weather-dashboard main.js created by Erickson Powell for UW-SEA-FSF Coding Bootcamp
 
 //API WIZARDRY
-const APIKey = process.env.WEATHER_API_KEY;
+const APIKey = a3b4f18c52ad53eb1775853a7b8fe0c0;
 const APIKeyName = "homework";
 
 //get previously searched cities, or empty array (fresh localstorage/search)
