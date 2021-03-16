@@ -16,10 +16,10 @@
   <!-- Start of the main application UI -->
   <div class="container justify-content-around">
 
-      <header class="row justify-content-around align-items-center bg-dark text-light">
-        <h1 class="col">WEATHER DASHBOARD</h1>
-        <h6 class="col">v1.0.0</h6>
-      </header>
+    <header class="row justify-content-around align-items-center bg-dark text-light">
+      <h1 class="col">WEATHER DASHBOARD</h1>
+      <h6 class="col">v1.0.0</h6>
+    </header>
 
     <div class="row justify-content-around">
       <div class="col-3">
@@ -34,13 +34,13 @@
         <div class="row">
           <div class="card" style="width: 95%;">
             <div class="card-header">
-              CITY [date] [icon]
+              <h3 id="ccHeader">CITY NAME</h3><h5 id="ccDate">DATESTAMP</h5>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">temp</li>
-              <li class="list-group-item">humid</li>
-              <li class="list-group-item">wind speed</li>
-              <li class="list-group-item">UV index</li>
+              <li class="list-group-item" id="ccTemp">temp</li>
+              <li class="list-group-item" id="ccHumidity">humid</li>
+              <li class="list-group-item" id="ccWindSpeed">wind speed</li>
+              <li class="list-group-item" id="ccUVIndex">UV index</li>
             </ul>
           </div>
         </div>

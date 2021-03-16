@@ -1,7 +1,7 @@
 // u06-weather-dashboard main.js created by Erickson Powell for UW-SEA-FSF Coding Bootcamp
 
 //API WIZARDRY
-const APIKey = "a3b4f18c52ad53eb1775853a7b8fe0c0";
+const APIKey = process.env.WEATHER_API_KEY;
 const APIKeyName = "homework";
 
 //get previously searched cities, or empty array (fresh localstorage/search)
@@ -50,14 +50,16 @@ $("#searchCity").click(function(e) {
   console.log(cityToSearch);
   //passes city into API call function
   getWeatherByCity(cityToSearch);
-})
-
-
-
-
+});
 
 // WHEN I view current weather conditions for that city
 // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+
+
+
+
+
+
 
 // WHEN I view the UV index
 // THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
