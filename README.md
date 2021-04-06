@@ -17,6 +17,6 @@ The searched city is added to a list of searched cities, up to 7.
 
 ### Links
 
-[Deployed Application](https://epowelldev.github.io/u05-weather-dashboard/)
+[Deployed Application](https://epowelldev.github.io/u06-weather-dashboard/)
 
-[GitHub Repo](https://github.com/epowelldev/u05-weather-dashboard)
+[GitHub Repo](https://github.com/epowelldev/u06-weather-dashboard)
